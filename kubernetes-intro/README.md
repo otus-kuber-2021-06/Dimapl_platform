@@ -25,8 +25,8 @@
      - создан и запущен pod
  
 ## Как запустить проект:
-  ```minikube start```
-  ```kubectl apply -f web-pod.yaml```
+  ```minikube start &&```
+  ```kubectl apply -f web-pod.yaml &&```
   ```kubectl apply -f frontend-pod-healthy.yaml```
 
 ## Как проверить работоспособность:
