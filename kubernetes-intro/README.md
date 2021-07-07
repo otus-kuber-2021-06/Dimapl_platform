@@ -30,9 +30,9 @@
   ```kubectl apply -f frontend-pod-healthy.yaml```
 
 ## Как проверить работоспособность:
-  ```kubectl port-forward --address 0.0.0.0 pod/web 8000:8000```
+ - ```kubectl port-forward --address 0.0.0.0 pod/web 8000:8000```
  - Перейти по ссылке http://localhost:8080
-  ```kubectl get pod frontend```
+ - ```kubectl get pod frontend```
  - frontend должен находиться в статусе Running
 
 ## PR checklist:
