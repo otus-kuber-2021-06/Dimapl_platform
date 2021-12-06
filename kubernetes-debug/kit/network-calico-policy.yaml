@@ -1,0 +1,24 @@
+apiVersion: crd.projectcalico.org/v1
+kind: NetworkPolicy
+metadata:
+  name: netperf-calico-policy
+  labels:
+spec:
+  order: 10
+  selector: app == "netperf-operator"
+  ingress:
+    - action: Allow
+      source:
+        #selector: netperf-type == "client"
+        #selector: app == "netperf-operator"
+        selector: netperf-role == "netperf-client"
+    - action: Log
+    - action: Deny
+  egress:
+    - action: Allow
+      destination:
+        #selector: netperf-type == "client"
+        #selector: app == "netperf-operator"
+        selector: netperf-role == "netperf-client"
+    - action: Log
+    - action: Deny

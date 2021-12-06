@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: nginx-status-page
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx-status-page
+  namespace: nginx-status-page
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx-status-page
+  template:
+    metadata:
+      labels:
+        app: nginx-status-page
+    spec:
+      containers:
+      - name: nginx
+        image: dimapl/nginx-alpine:3.3
+        ports:
+        - containerPort: 8000
